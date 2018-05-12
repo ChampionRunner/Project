@@ -8,6 +8,7 @@
 	</script>
 <?php
 	}
+	session_destroy();
 ?>
 
 <html>

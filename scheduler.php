@@ -1,3 +1,15 @@
+<?php
+	session_start();
+	if(isset($_SESSION['success']))
+	{
+?>
+	<script type="text/javascript">
+		alert("File downloaded successfully");
+	</script>
+<?php
+	}
+?>
+
 <html>
    <head>
       <!-- Compiled and minified CSS -->

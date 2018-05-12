@@ -1,5 +1,6 @@
 <?php
 require_once "PHPExcel-1.8/Classes/PHPExcel.php";
+session_start();
 
 if (isset($_POST['column']))
 	{
@@ -28,7 +29,8 @@ if (isset($_POST['column']))
 
 	$file = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
 	$file->save('helloWorld.xlsx');
-	header('Location:module1.php');
+	$_SESSION['success']='true';
+	header('Location:scheduler.php');
 	}
   else
 	{
@@ -38,7 +40,7 @@ if (isset($_POST['column']))
 		alert("Please enter the no. of columns");
 </script>
 <?php
-	header('Location:module1.php');
+	header('Location:scheduler.php');
 	}
 
 ?>

@@ -16,6 +16,24 @@
       <!-- Compiled and minified CSS -->
       <link rel="stylesheet" href="module1.css">
       <!-- Compiled and minified JavaScript -->
+	  <script>
+function showHint(str) {
+    if (str.length == 0) { 
+        alert("Please enter the values");
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                return true;
+            }
+        };
+        xmlhttp.open("POST", "createSpreadsheet.php", true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xmlhttp.send(str);
+    }
+}
+</script>
    </head>
    <body>
       <div class="card-content">
@@ -25,14 +43,14 @@
                   <h4>Scheduler</h4>
                </center>
                <div class="row">
-                  <form class="col s8" method="POST" action="" name="form1" style="margin-left:33%;">
+                  <form class="col s8" method="POST"  action="" name="form1" style="margin-left:33%;">
                      <div class="row">
                         <div class="col s6">
                            <input id="cols"  value="<?php if(isset($_POST['cols'])){ echo $_POST['cols']; }?>" required type="text" name="cols" placeholder="No. of Columns" oninput="this.form.submit()" autofocus>
                         </div>
                         <br><br><br>
                   </form>
-                  <form class="col s8" method="POST" action="downloadSpreadsheet.php" name="form2" style="margin-left:2%;">
+                  <form class="col s8" method="POST" target="_blank" action="createSpreadsheet1.php" name="form2" style="margin-left:2%;">
                   <?php
                      if ( ! empty($_POST['cols'])){
                       $cols = $_POST['cols'];
@@ -56,7 +74,8 @@
                      }		
                      }
                      ?>
-                  <a class="waves-effect waves-light btn blue" target="_blank" href="createSpreadsheet.php" style="margin-left:0%;">Create Spreadsheet</a>  
+                <!-- <button class="waves-effect waves-light btn blue" target="_blank" onclick="create(name)" style="margin-left:0%;">Create Spreadsheet</button>  -->	
+                   <input value="Create Spreadsheet" id="submit1"  name="submit1" type="submit" class="waves-effect waves-light btn blue"/>	
                   <input value="Download Spreadsheet" id="submit"  name="submit" type="submit" class="waves-effect waves-light btn blue"/>		
                   </div>
                   </form>

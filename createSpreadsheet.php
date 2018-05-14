@@ -1,6 +1,8 @@
 <?php
 include 'PHPExcel-1.8/Classes/PHPExcel/IOFactory.php';
 
+$col_name = $_POST["name"];
+
 $inputFileType = 'Excel2007';
 $inputFileName = 'helloWorld.xlsx';
 ?>

@@ -16,24 +16,7 @@
       <!-- Compiled and minified CSS -->
       <link rel="stylesheet" href="module1.css">
       <!-- Compiled and minified JavaScript -->
-	  <script>
-function showHint(str) {
-    if (str.length == 0) { 
-        alert("Please enter the values");
-        return;
-    } else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                return true;
-            }
-        };
-        xmlhttp.open("POST", "createSpreadsheet.php", true);
-		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xmlhttp.send(str);
-    }
-}
-</script>
+
    </head>
    <body>
       <div class="card-content">
@@ -50,7 +33,7 @@ function showHint(str) {
                         </div>
                         <br><br><br>
                   </form>
-                  <form class="col s8" method="POST" target="_blank" action="createSpreadsheet1.php" name="form2" style="margin-left:2%;">
+                  <form class="col s8" method="POST" action="createSpreadsheet1.php" name="form2" style="margin-left:2%;">
                   <?php
                      if ( ! empty($_POST['cols'])){
                       $cols = $_POST['cols'];
